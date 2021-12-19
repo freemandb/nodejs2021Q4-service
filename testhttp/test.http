@@ -1,0 +1,75 @@
+### GET All users
+GET http://localhost:4000/users HTTP/1.1
+Accept: application/json'
+
+### GET user by uuid
+GET http://localhost:4000/users/87928ff3-75ed-4451-ac4c-f288b89cde5a HTTP/1.1
+
+### DELETE user by uuid
+DELETE http://localhost:4000/users/8ab0849b-3f1d-466e-95fe-3da054e9660e HTTP/1.1
+
+
+### POST Add user
+POST http://localhost:4000/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Alex_2",
+    "login":"AAA",
+    "password":"123"
+}
+
+### PUT change user data user
+PUT http://localhost:4000/users/6ced3085-9503-4201-a37a-434be4a0d361 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Alex_B",
+    "login":"BBB",
+    "password":"99999"
+}
+
+### ADD Board
+POST http://localhost:4000/boards HTTP/1.1
+Content-Type: application/json
+
+{
+    "title":"Board_1",
+    "columns":[
+        {
+            "title":"Column_1",
+            "order": 0
+        },
+        {
+            "title":"Column_2",
+            "order": 1
+        }
+    ]
+        
+    
+}
+
+### Delete Board
+DELETE http://localhost:4000/boards/8eb6846e-cb4a-4e9f-bc75-fcdc8d4fbb83 HTTP/1.1
+Content-Type: application/json
+
+### GET Board
+GET http://localhost:4000/boards HTTP/1.1
+Content-Type: application/json
+
+
+### ADD Task
+POST http://localhost:4000/boards/093a6b8d-afd9-4905-9b8d-14b43b9b354e/tasks HTTP/1.1
+Content-Type: application/json
+
+{
+    "title":"Task1",
+    "order": 1,
+    "description": "Second task",
+    "userId": "asdfsdfsdf",
+    "columnId": null
+    
+}
+
+### GET Tasks on board
+GET http://localhost:4000/boards/093a6b8d-afd9-4905-9b8d-14b43b9b354e/tasks HTTP/1.1

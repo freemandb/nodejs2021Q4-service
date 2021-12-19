@@ -1,54 +1,54 @@
-const User = require("./user.model");
 const NotFoundError = require('../../errors/not.found.error');
+const Board = require("./board.model");
 
-const usersDB = []
+const boardsDB = []
 
 const getAll = async () => 
   // TODO: mock implementation. should be replaced during task development
    new Promise((resolve) => {
     setTimeout(() => {
-      resolve(usersDB);
+      resolve(boardsDB);
     }, 2);
   })
 ;
 
-const getUserByUUID = async (uuid) => 
+const getBoardByUUID = async (uuid) => 
   // TODO: mock implementation. should be replaced during task development
     new Promise((resolve, reject) => {
     setTimeout(() => {
-      const user = usersDB.find(userA => userA.id === uuid)
-      if (!user)
+      const board1 = boardsDB.find(boardA => boardA.id === uuid)
+      if (!board1)
       {
-        reject(new NotFoundError(`User with uuid = ${uuid} not found`));
+        reject(new NotFoundError(`Board with uuid = ${uuid} not found`));
       }
-      resolve(user);
+      resolve(board1);
     }, 2);
   })
 ;
 
-const deleteUserByUUID = async (uuid) => 
+const deleteByUUID = async (uuid) => 
   // TODO: mock implementation. should be replaced during task development
     new Promise((resolve, reject) => {
     setTimeout(() => {
-      const user = usersDB.find(userB => userB.id === uuid)
-      if (!user)
+      const board2 = boardsDB.find(boardB => boardB.id === uuid)
+      if (!board2)
       {
         reject(new NotFoundError(`User with uuid = ${uuid} not found`));
       }
-      usersDB.splice(usersDB.indexOf(user), 1);
+      boardsDB.splice(boardsDB.indexOf(board2), 1);
       resolve(true);
     }, 2);
   })
 ;
 
-const addUser = async (userObj) => 
+const addBoard = async (obj) => 
   // TODO: mock implementation. should be replaced during task development
    new Promise((resolve) => {
     setTimeout(() => {
-      usersDB.push(new User(userObj));
-      resolve(usersDB[usersDB.length - 1]);
+      boardsDB.push(new Board(obj));
+      resolve(boardsDB[boardsDB.length - 1]);
     }, 2);
   })
 ;
 
-module.exports = { getAll, addUser, getUserByUUID, deleteUserByUUID};
+module.exports = { getAll, addBoard, getBoardByUUID, deleteByUUID};

@@ -1,0 +1,17 @@
+const URL_MAIN_PATH = 'users';
+const URL_BOARDS_PATH = 'boards';
+const URL_TASKS_PATH = 'tasks';
+
+const STATUS_ERROR_CODES = {
+    NOT_FOUND: 404,
+    BAD_REQUEST: 400,
+    INTERNAL_SERVER_ERROR: 500
+}
+
+const STATUS_OK_CODES = {
+    OK: 200,
+    CREATED: 201,
+    NO_CONTENT: 204,
+}
+
+module.exports = {URL_MAIN_PATH, URL_BOARDS_PATH, STATUS_ERROR_CODES, STATUS_OK_CODES, URL_TASKS_PATH}
